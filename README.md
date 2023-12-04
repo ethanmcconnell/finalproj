@@ -1,3 +1,3 @@
-# finalproj
+# finalproject
 
-basic calculator
+This program is a basic calculator that takes two numbers and one operator (+, -, *, /).
