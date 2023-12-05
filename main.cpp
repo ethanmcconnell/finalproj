@@ -19,6 +19,7 @@ int main () {
         string oneMore;
         bool numberOneBool = true;
         bool numberTwoBool = true;
+        bool yesNo = true;
 
         while (numberOneBool) {
             cout << "Enter first number:" << endl;
@@ -77,8 +78,17 @@ int main () {
 
         previousVals.push_back(result);
 
-        cout << "Would you like to enter another operation: yes/no" << endl;
-        cin >> oneMore;
+        while (yesNo) {
+            cout << "Would you like to enter another operation: yes/no" << endl;
+            cin >> oneMore;
+
+            if (oneMore == "yes" || oneMore == "no") {
+                yesNo = false;
+            }
+            else {
+                cout << "Please enter yes or no" << endl;
+            }
+        }
 
         if (oneMore == "no") {
             anotherOperation = false;
