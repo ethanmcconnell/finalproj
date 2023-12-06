@@ -1,4 +1,6 @@
+#include "OperationResult.h"
 #include <string>
+
 double NumsResult (double num1, std::string oper, double num2) {
 
     double result = 0;

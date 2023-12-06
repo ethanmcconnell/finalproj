@@ -1,8 +1,10 @@
-#include <iostream>
 #include "OperationResult.h"
+#include <iostream>
 #include <vector>
 using namespace std;
+#include <string>
 
+double NumsResult (double num1, std::string operation, double num2);
 int main () {
 
     bool anotherOperation = true;
@@ -107,4 +109,23 @@ int main () {
 
 
     return 0;
+}
+
+double NumsResult (double num1, std::string oper, double num2) {
+
+    double result = 0;
+
+    if (oper == "+") {
+        result = num1 + num2;
+    }
+    else if (oper == "-") {
+        result = num1 - num2;
+    }
+    else if (oper == "*") {
+        result = num1 * num2;
+    }
+    else if (oper == "/") {
+        result = num1 / num2;
+    }
+    return result;
 }
