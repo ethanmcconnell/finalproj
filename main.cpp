@@ -1,7 +1,10 @@
 #include <iostream>
-#include "OperationResult.h"
 #include <vector>
 using namespace std;
+#include <string>
+
+double NumsResult (double num1, std::string operation, double num2);
+bool isfirstaletter(const string & string);
 
 int main () {
 
@@ -21,25 +24,43 @@ int main () {
         bool numberTwoBool = true;
         bool yesNo = true;
 
-        while (numberOneBool) {
+        while (numberOneBool) 
+        {
             cout << "Enter first number:" << endl;
-            cin >> num1;
-            numberOneBool = false;
+          
+                getline(cin, num1);  
 
-            for (int i = 0; i < num1.size(); ++i) {
-                if ((!isdigit(num1[i])) && num1[i] != '.' && num1[i] != '-') {
-                    numberOneBool = true;
-                    cout << "Please enter a valid number." << endl;
+                if (isfirstaletter(num1))
+                {
+                    cout << "invalid number" << endl;
+                }
+                else 
+                {
+                    numberOneBool = false;
                     break;
                 }
-            }
+                
+                /*for (int i = 0; i < num1.size(); ++i) 
+                {
+                if ((!isdigit(num1[i])) && num1[i] != '.' && num1[i] != '-') 
+                {
+                    numberOneBool = true;
+                    cout << "Please enter a valid number." << endl;
+                    getline(cin, num1);
+                    break;
+                }
+                }*/
+
+                   
+            //numberOneBool = false;
+           
         }
         double numOneDouble = std::stod(num1);
         firstNum.push_back(numOneDouble);
 
         while (true) {
             cout << "Enter operator: +, -, *, /" << endl;
-            cin >> oper;
+            getline(cin, oper);
             if (oper != "+" && oper != "-" && oper != "*" && oper != "/") {
                 cout << "Invalid Operator. Try again." << endl;
             } else {
@@ -50,16 +71,17 @@ int main () {
 
         while (numberTwoBool) {
             cout << "Enter second number" << endl;
-            cin >> num2;
-            numberTwoBool = false;
-
-            for (int i = 0; i < num2.size(); ++i) {
-                if ((!isdigit(num2[i])) && num2[i] != '.' && num2[i] != '-') {
-                    numberTwoBool = true;
-                    cout << "Please enter a valid number." << endl;
+            getline(cin, num2);
+            //cin >> num2;
+             if (isfirstaletter(num2))
+                {
+                    cout << "invalid number" << endl;
+                }
+                else 
+                {
+                    numberTwoBool = false;
                     break;
                 }
-            }
         }
         double numTwoDouble = std::stod(num2);
         secondNum.push_back(numTwoDouble);
@@ -80,7 +102,8 @@ int main () {
 
         while (yesNo) {
             cout << "Would you like to enter another operation: yes/no" << endl;
-            cin >> oneMore;
+            getline(cin, oneMore);
+            //cin >> oneMore;
 
             if (oneMore == "yes" || oneMore == "no") {
                 yesNo = false;
@@ -108,3 +131,39 @@ int main () {
 
     return 0;
 }
+double NumsResult (double num1, std::string oper, double num2) {
+
+    double result = 0;
+
+    if (oper == "+") {
+        result = num1 + num2;
+    }
+    else if (oper == "-") {
+        result = num1 - num2;
+    }
+    else if (oper == "*") {
+        result = num1 * num2;
+    }
+    else if (oper == "/") {
+        result = num1 / num2;
+    }
+    return result;
+}
+
+bool isfirstaletter(const string & string) {
+    for (int i = 0; i < string.length(); i++)
+    {
+
+        char c = string[i]; // John 5
+        //      john 5
+         if (i == 0 && (c == ' ' || c == '\t')) {
+            continue; 
+        }
+         // J != digit
+         if (!isdigit(c) && c != '.' && c != '-') {
+            return true;
+        }
+    }
+        return false;
+    }
+    
