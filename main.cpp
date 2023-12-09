@@ -28,7 +28,7 @@ int main () {
         {
             cout << "Enter first number:" << endl;
           
-                getline(cin, num1);  
+                getline(cin, num1); //Used getline instead of cin because we need the whole line a user might input  
 
                 if (isfirstaletter(num1))
                 {
@@ -40,19 +40,7 @@ int main () {
                     break;
                 }
                 
-                /*for (int i = 0; i < num1.size(); ++i) 
-                {
-                if ((!isdigit(num1[i])) && num1[i] != '.' && num1[i] != '-') 
-                {
-                    numberOneBool = true;
-                    cout << "Please enter a valid number." << endl;
-                    getline(cin, num1);
-                    break;
-                }
-                }*/
-
-                   
-            //numberOneBool = false;
+             
            
         }
         double numOneDouble = std::stod(num1);
@@ -153,7 +141,6 @@ double NumsResult (double num1, std::string oper, double num2) {
 bool isfirstaletter(const string & string) {
     for (int i = 0; i < string.length(); i++)
     {
-
         char c = string[i]; // John 5
         //      john 5
          if (i == 0 && (c == ' ' || c == '\t')) {
