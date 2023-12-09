@@ -23,11 +23,11 @@ int main () {
 
         while (numberOneBool) {
             cout << "Enter first number:" << endl;
-            cin >> num1;
+            getline (cin, num1);
             numberOneBool = false;
 
-            for (int i = 0; i < num1.size(); ++i) {
-                if ((!isdigit(num1[i])) && num1[i] != '.' && num1[i] != '-') {
+                for (int i = 0; i < num1.size(); ++i) {
+                if ((!isdigit(num1[i])) && num1[i] != '.' && num1[i] != '-' && num1[i] != ' ') {
                     numberOneBool = true;
                     cout << "Please enter a valid number." << endl;
                     break;
@@ -39,7 +39,7 @@ int main () {
 
         while (true) {
             cout << "Enter operator: +, -, *, /" << endl;
-            cin >> oper;
+            getline (cin, oper);
             if (oper != "+" && oper != "-" && oper != "*" && oper != "/") {
                 cout << "Invalid Operator. Try again." << endl;
             } else {
@@ -50,11 +50,11 @@ int main () {
 
         while (numberTwoBool) {
             cout << "Enter second number" << endl;
-            cin >> num2;
+            getline (cin, num2);
             numberTwoBool = false;
 
             for (int i = 0; i < num2.size(); ++i) {
-                if ((!isdigit(num2[i])) && num2[i] != '.' && num2[i] != '-') {
+                if ((!isdigit(num2[i])) && num2[i] != '.' && num2[i] != '-' && num2[i] != ' ') {
                     numberTwoBool = true;
                     cout << "Please enter a valid number." << endl;
                     break;
@@ -80,7 +80,7 @@ int main () {
 
         while (yesNo) {
             cout << "Would you like to enter another operation: yes/no" << endl;
-            cin >> oneMore;
+            getline (cin, oneMore);
 
             if (oneMore == "yes" || oneMore == "no") {
                 yesNo = false;
