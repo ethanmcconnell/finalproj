@@ -27,7 +27,7 @@ int main () {
             numberOneBool = false;
 
                 for (int i = 0; i < num1.size(); ++i) {
-                if ((!isdigit(num1[i])) && num1[i] != '.' && num1[i] != '-' && num1[i] != ' ') {
+                if ((!isdigit(num1[i])) && num1[i] != '.' && num1[i] != '-' && num1[i] == ' ') {
                     numberOneBool = true;
                     cout << "Please enter a valid number." << endl;
                     break;
@@ -54,7 +54,7 @@ int main () {
             numberTwoBool = false;
 
             for (int i = 0; i < num2.size(); ++i) {
-                if ((!isdigit(num2[i])) && num2[i] != '.' && num2[i] != '-' && num2[i] != ' ') {
+                if ((!isdigit(num2[i])) && num2[i] != '.' && num2[i] != '-' && num2[i] == ' ') {
                     numberTwoBool = true;
                     cout << "Please enter a valid number." << endl;
                     break;
