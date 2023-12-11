@@ -23,17 +23,24 @@ int main () {
 
         while (numberOneBool) {
             cout << "Enter first number:" << endl;
-            getline (cin, num1);
+            getline(cin, num1);
             numberOneBool = false;
 
                 for (int i = 0; i < num1.size(); ++i) {
-                if (!isdigit(num1[i]) && num1[i] != '.' && num1[i] != '-' || num1[i] == ' ') {
-                    numberOneBool = true;
-                    cout << "Please enter a valid number." << endl;
-                    break;
+                    if (!isdigit(num1[i]) && num1[i] != '.' && num1[i] != '-' || num1[i] == ' ') {
+                        numberOneBool = true;
+                        cout << "Please enter a valid number." << endl;
+                        break;
+                    }
+                    if (num1[i] == '-' && i != 0) {
+                        numberOneBool = true;
+                        cout << "Please enter a valid number." << endl;
+                        break;
+                    }
                 }
             }
-        }
+
+
         double numOneDouble = std::stod(num1);
         firstNum.push_back(numOneDouble);
 
@@ -55,6 +62,11 @@ int main () {
 
             for (int i = 0; i < num2.size(); ++i) {
                 if (!isdigit(num2[i]) && num2[i] != '.' && num2[i] != '-' || num2[i] == ' ') {
+                    numberTwoBool = true;
+                    cout << "Please enter a valid number." << endl;
+                    break;
+                }
+                if(num2[i] ==  '-' &&  i != 0) {
                     numberTwoBool = true;
                     cout << "Please enter a valid number." << endl;
                     break;
