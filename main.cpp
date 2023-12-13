@@ -12,11 +12,14 @@ int main () {
     vector <double> secondNum;
     vector<double> previousVals;
 
+
     while (anotherOperation) {
         string num1, num2;
         double result;
         string oper;
         string oneMore;
+        int decimalCount1 = 0;
+        int decimalCount2 = 0;
         bool numberOneBool = true;
         bool numberTwoBool = true;
         bool yesNo = true;
@@ -27,9 +30,18 @@ int main () {
             numberOneBool = false;
 
                 for (int i = 0; i < num1.size(); ++i) {
+                    if (num1[i] == '.') {
+                        decimalCount1++;
+                    }
                     if (!isdigit(num1[i]) && num1[i] != '.' && num1[i] != '-' || num1[i] == ' ') {
                         numberOneBool = true;
                         cout << "Please enter a valid number." << endl;
+                        break;
+                    }
+                    else if (decimalCount1 > 1) {
+                        numberOneBool = true;
+                        cout << "Please enter a valid number." << endl;
+                        decimalCount1 = 0;
                         break;
                     }
                     if (num1[i] == '-' && i != 0) {
@@ -37,6 +49,7 @@ int main () {
                         cout << "Please enter a valid number." << endl;
                         break;
                     }
+
                 }
             }
 
@@ -61,9 +74,18 @@ int main () {
             numberTwoBool = false;
 
             for (int i = 0; i < num2.size(); ++i) {
+                if (num2[i] == '.') {
+                    decimalCount2++;
+                }
                 if (!isdigit(num2[i]) && num2[i] != '.' && num2[i] != '-' || num2[i] == ' ') {
                     numberTwoBool = true;
                     cout << "Please enter a valid number." << endl;
+                    break;
+                }
+                else if (decimalCount2 > 1) {
+                    numberTwoBool = true;
+                    cout << "Please enter a valid number." << endl;
+                    decimalCount2 = 0;
                     break;
                 }
                 if(num2[i] ==  '-' &&  i != 0) {
@@ -71,6 +93,7 @@ int main () {
                     cout << "Please enter a valid number." << endl;
                     break;
                 }
+
             }
         }
         double numTwoDouble = std::stod(num2);
